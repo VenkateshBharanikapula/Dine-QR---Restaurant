@@ -150,7 +150,7 @@ Scan the QR code below or click the link to open the app:
 
 [Open DineQR Live](https://kitchen-dashboard-frontend.onrender.com)
 
-![DineQR QR Code](./public/images/qr-code.png)
+![DineQR QR Code](kitchen-dashboard/public/images/qr-code.png)
 
 *Replace `dineqr-qr.png` with your actual QR code file in `public/images/`.*
 
