@@ -152,8 +152,6 @@ Scan the QR code below or click the link to open the app:
 
 ![DineQR QR Code](kitchen-dashboard/public/images/qr-code.png)
 
-*Replace `dineqr-qr.png` with your actual QR code file in `public/images/`.*
-
 ---
 
 ## 🌐 API Endpoints
