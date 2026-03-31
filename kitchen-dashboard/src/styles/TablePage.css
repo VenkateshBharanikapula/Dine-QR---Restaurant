@@ -1,0 +1,24 @@
+/* src/styles/TablePage.css */
+
+.table-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9; 
+}
+
+.table-page-icon {
+  font-size: 48px;
+}
+
+.table-page-title {
+  margin: 16px 0 8px;
+}
+
+.table-page-subtitle {
+  color: #6b7280;
+  margin: 0;
+}

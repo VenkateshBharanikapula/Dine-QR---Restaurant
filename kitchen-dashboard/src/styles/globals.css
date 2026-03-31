@@ -1,0 +1,285 @@
+/* ============================================
+   GLOBAL STYLES — QR Restaurant Premium UI
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+  --black:       #0a0a0a;
+  --black-soft:  #141414;
+  --black-card:  #1a1a1a;
+  --black-hover: #222222;
+  --border:      #2a2a2a;
+  --border-soft: #333333;
+
+  --gold:        #f5a623;
+  --gold-light:  #fbbf24;
+  --gold-dim:    rgba(245, 166, 35, 0.12);
+
+  --white:       #ffffff;
+  --white-soft:  #f5f5f5;
+  --grey:        #888888;
+  --grey-light:  #aaaaaa;
+
+  --success:     #22c55e;
+  --danger:      #ef4444;
+  --info:        #3b82f6;
+
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md:   0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg:   0 20px 48px rgba(0,0,0,0.6);
+  --shadow-gold: 0 8px 32px rgba(245,166,35,0.2);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  --transition:  all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--border-soft); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--grey); }
+
+/* ── Typography ── */
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+/* ── Skeleton Loading ── */
+.skeleton {
+  background: linear-gradient(90deg, var(--black-card) 25%, var(--black-hover) 50%, var(--black-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ── Utility ── */
+.fade-up    { animation: fadeUp 0.5s ease both; }
+.fade-in    { animation: fadeIn 0.3s ease both; }
+.slide-down { animation: slideDown 0.25s ease both; }
+
+/* ── Card Base ── */
+.card {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: var(--border-soft);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Button Base ── */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+button:active { transform: scale(0.97); }
+
+/* ── Gold Button ── */
+.btn-gold {
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ── Ghost Button ── */
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+}
+
+.btn-ghost:hover {
+  background: var(--black-hover);
+  border-color: var(--grey);
+}
+
+/* ── Input ── */
+input, select, textarea {
+  font-family: var(--font-body);
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  outline: none;
+  transition: var(--transition);
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-dim);
+}
+
+input::placeholder { color: var(--grey); }
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 700;
+  font-size: 11px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Category Pills ── */
+.pill {
+  padding: 6px 18px;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--grey-light);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.pill:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.pill.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+  font-weight: 700;
+}
+
+/* ── Page Container ── */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+  animation: fadeUp 0.4s ease both;
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+/* ── Status Chips ── */
+.status-available  { background: rgba(34,197,94,0.12);  color: #4ade80; }
+.status-soldout    { background: rgba(107,114,128,0.15); color: #9ca3af; }
+.status-preparing  { background: rgba(59,130,246,0.12);  color: #60a5fa; }
+.status-ready      { background: rgba(34,197,94,0.12);   color: #4ade80; }
+.status-delivered  { background: rgba(107,114,128,0.12); color: #9ca3af; }
+.status-pending    { background: rgba(245,166,35,0.12);  color: #f5a623; }
+
+/* ── Notification Toast ── */
+.toast {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--black-card);
+  border: 1px solid var(--gold);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  box-shadow: var(--shadow-gold);
+  animation: slideDown 0.3s ease both;
+  white-space: nowrap;
+}
+
+/* ── Staggered grid items ── */
+.menu-grid > *:nth-child(1)  { animation-delay: 0.04s; }
+.menu-grid > *:nth-child(2)  { animation-delay: 0.08s; }
+.menu-grid > *:nth-child(3)  { animation-delay: 0.12s; }
+.menu-grid > *:nth-child(4)  { animation-delay: 0.16s; }
+.menu-grid > *:nth-child(5)  { animation-delay: 0.20s; }
+.menu-grid > *:nth-child(6)  { animation-delay: 0.24s; }
+.menu-grid > *:nth-child(7)  { animation-delay: 0.28s; }
+.menu-grid > *:nth-child(8)  { animation-delay: 0.32s; }
+.menu-grid > *:nth-child(n+9){ animation-delay: 0.36s; }

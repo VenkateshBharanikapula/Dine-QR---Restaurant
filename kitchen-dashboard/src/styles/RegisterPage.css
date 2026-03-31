@@ -1,0 +1,295 @@
+/* src/styles/RegisterPage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ─── Page Layout ─────────────────────────────────────────────────────────── */
+/* Override index.css body background (#f6f7fb) */
+.rp-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f0e0c !important;
+  font-family: 'DM Sans', sans-serif;
+  padding: 24px;
+  color: #f0ede6; /* reset index.css body color: #222 */
+}
+
+/* ─── Card ────────────────────────────────────────────────────────────────── */
+.rp-page .rp-card {
+  width: 100%;
+  max-width: 400px;
+  background: #1a1915;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 44px 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: rp-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Logo ────────────────────────────────────────────────────────────────── */
+.rp-page .rp-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.rp-page .rp-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #c9922a, #e8a83a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.rp-page .rp-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #f0ede6;
+}
+
+.rp-page .rp-logo-name span {
+  color: #c9922a;
+}
+
+/* ─── Headings ────────────────────────────────────────────────────────────── */
+/* globals.css sets h1-h3 to Playfair Display — override with Cormorant */
+.rp-page .rp-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 28px;
+  font-weight: 600;
+  color: #f0ede6;
+  margin: 0 0 6px;
+  text-align: center;
+  letter-spacing: normal;
+}
+
+.rp-page .rp-subtitle {
+  font-size: 14px;
+  color: #6b6660;
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+/* ─── Floating Input Field ────────────────────────────────────────────────── */
+.rp-page .rp-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/*
+  globals.css sets input { padding: 12px 16px; border-radius: 8px; box-shadow on focus }
+  Using 3-level specificity (.rp-page .rp-field .rp-input) + !important to win.
+*/
+.rp-page .rp-field .rp-input {
+  width: 100%;
+  padding: 22px 14px 8px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #242320 !important;
+  color: #f0ede6 !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  appearance: none;
+  line-height: 1.4;
+  box-shadow: none !important; /* kill globals gold glow */
+}
+
+.rp-page .rp-field .rp-input:focus {
+  border-color: rgba(201, 146, 42, 0.5) !important;
+  box-shadow: none !important;
+}
+
+.rp-page .rp-field .rp-input.error {
+  border-color: rgba(224, 92, 75, 0.6) !important;
+}
+
+.rp-page .rp-field .rp-label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b6660;
+  font-size: 15px;
+  transition:
+    top 0.18s ease,
+    transform 0.18s ease,
+    font-size 0.18s ease,
+    color 0.18s ease,
+    letter-spacing 0.18s ease;
+  line-height: 1;
+  z-index: 1;
+  background: #242320; 
+  padding: 0 6px;      
+}
+
+.rp-page .rp-field .rp-label.active {
+  top: -6px;
+  transform: translateY(0);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #c9922a;
+}
+
+/* ─── Error Messages ──────────────────────────────────────────────────────── */
+.rp-page .rp-field-error {
+  font-size: 12px;
+  color: #e05c4b;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rp-page .rp-general-error {
+  background: rgba(224, 92, 75, 0.08);
+  border: 1px solid rgba(224, 92, 75, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #e05c4b;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Password Strength Bar (Unique to Registration) ──────────────────────── */
+.rp-page .rp-strength-bar-wrap {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.rp-page .rp-strength-bar {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: background 0.3s;
+}
+
+.rp-page .rp-strength-bar.filled-weak { background: #e05c4b; }
+.rp-page .rp-strength-bar.filled-medium { background: #ef9f27; }
+.rp-page .rp-strength-bar.filled-strong { background: #4caf7d; }
+
+.rp-page .rp-strength-label {
+  font-size: 11px;
+  color: #6b6660;
+  margin-top: 4px;
+}
+
+/* ─── Submit Button ───────────────────────────────────────────────────────── */
+/* index.css button:hover { transform: scale(1.03) } — must be overridden */
+.rp-page .rp-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: #c9922a;
+  color: #1a1612;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.rp-page .rp-btn:hover:not(:disabled) {
+  background: #e8a83a;
+  transform: translateY(-1px) !important;
+}
+
+.rp-page .rp-btn:active {
+  transform: scale(0.98) !important;
+}
+
+.rp-page .rp-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ─── Loading Spinner ─────────────────────────────────────────────────────── */
+.rp-page .rp-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(26, 22, 18, 0.2);
+  border-top-color: #1a1612;
+  border-radius: 50%;
+  animation: rp-spin 0.7s linear infinite;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+.rp-page .rp-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.rp-page .rp-divider::before,
+.rp-page .rp-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.rp-page .rp-divider-text {
+  font-size: 12px;
+  color: #6b6660;
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────────────── */
+.rp-page .rp-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b6660;
+}
+
+.rp-page .rp-footer-link {
+  color: #c9922a;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.rp-page .rp-footer-link:hover {
+  color: #e8a83a;
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes rp-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

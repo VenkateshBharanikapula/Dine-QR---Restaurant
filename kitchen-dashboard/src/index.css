@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f6f7fb;
+  color: #222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+}

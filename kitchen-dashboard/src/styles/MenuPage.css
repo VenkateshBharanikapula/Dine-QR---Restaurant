@@ -1,0 +1,298 @@
+/* src/styles/MenuPage.css */
+
+.menu-page-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* ── Hero Header ── */
+.menu-hero-header {
+  background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+  border-bottom: 1px solid #1a1a1a;
+  padding: 28px 20px 0;
+}
+
+.menu-hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.menu-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.menu-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.menu-title-highlight {
+  color: #f5a623;
+}
+
+/* Cart Button */
+.menu-cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+  min-width: 130px;
+  justify-content: center;
+}
+
+.menu-cart-btn:hover {
+  border-color: #f5a623;
+  color: #f5a623;
+}
+
+.menu-cart-btn.active {
+  background: #f5a623;
+  border-color: #f5a623;
+  color: #0a0a0a;
+}
+
+.menu-cart-btn.active:hover {
+  /* Override hover for active state */
+  border-color: #f5a623;
+  color: #0a0a0a;
+}
+
+/* Search Bar */
+.menu-search-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.menu-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.menu-search-input {
+  width: 100%;
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 12px 16px 12px 44px;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.menu-search-input:focus {
+  border-color: #f5a623;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+}
+
+/* Category Pills */
+.menu-category-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menu-category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-category-pill {
+  padding: 7px 16px;
+  border-radius: 30px;
+  border: 1px solid #2a2a2a;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu-category-pill:hover {
+  border-color: #f5a623;
+  color: #f5a623;
+}
+
+.menu-category-pill.active {
+  border-color: #f5a623;
+  background: #f5a623;
+  color: #0a0a0a;
+  font-weight: 700;
+}
+
+.menu-category-pill.active:hover {
+  color: #0a0a0a; /* Ensure text stays dark on hover if active */
+}
+
+/* ── Main Content ── */
+.menu-main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+.menu-results-count-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.menu-results-count {
+  color: #555;
+  font-size: 13px;
+  margin: 0;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* ── Skeleton Loading State ── */
+.menu-skeleton-card {
+  background: #141414;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #1f1f1f;
+  height: 300px;
+}
+
+.menu-skeleton-img {
+  height: 180px;
+  background: linear-gradient(90deg, #1a1a1a 25%, #222 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.menu-skeleton-content {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-skeleton-line1 {
+  height: 10px;
+  width: 40%;
+  border-radius: 6px;
+  background: #1f1f1f;
+}
+
+.menu-skeleton-line2 {
+  height: 16px;
+  width: 75%;
+  border-radius: 6px;
+  background: #222;
+}
+
+.menu-skeleton-line3 {
+  height: 30px;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #1f1f1f;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── States (Error / Empty) ── */
+.menu-error-state,
+.menu-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #141414;
+  border-radius: 20px;
+  border: 1px solid #2a2a2a;
+}
+
+.menu-empty-state {
+  border-color: #1f1f1f;
+}
+
+.menu-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.menu-state-title {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.menu-empty-text {
+  color: #555;
+  font-size: 14px;
+}
+
+.menu-state-btn {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: #f5a623;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.menu-state-btn:hover {
+  background: #fbbf24;
+}
+
+.menu-empty-btn-outline {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: transparent;
+  color: #f5a623;
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.menu-empty-btn-outline:hover {
+  background: rgba(245, 166, 35, 0.1);
+}

@@ -1,0 +1,393 @@
+/* src/styles/OrderConfirmationPage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+.oc-page {
+  min-height: 100vh;
+  background: #0f0e0c;
+  font-family: 'DM Sans', sans-serif;
+  color: #f0ede6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.oc-wrap {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Success ring */
+.oc-ring-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.oc-ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid rgba(76, 175, 125, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  position: relative;
+  animation: oc-scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.oc-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(76, 175, 125, 0.15);
+  animation: oc-pulse 2.5s ease infinite;
+}
+
+.oc-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 6px;
+}
+
+.oc-subhead {
+  font-size: 14px;
+  color: #a09b8f;
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+/* Order ID ticket */
+.oc-ticket {
+  position: relative;
+  text-align: center;
+  background: rgba(201, 146, 42, 0.05);
+  border: 2px dashed rgba(201, 146, 42, 0.3);
+  border-radius: 14px;
+  padding: 20px 32px;
+  margin-bottom: 24px;
+  animation: oc-fade-up 0.5s 0.15s both;
+}
+
+.oc-ticket::before,
+.oc-ticket::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0f0e0c;
+}
+
+.oc-ticket::before {
+  left: -9px;
+}
+
+.oc-ticket::after {
+  right: -9px;
+}
+
+.oc-ticket-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b6660;
+  margin-bottom: 6px;
+}
+
+.oc-ticket-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 32px;
+  font-weight: 500;
+  color: #c9922a;
+  letter-spacing: 0.1em;
+}
+
+.oc-ticket-hint {
+  font-size: 12px;
+  color: #6b6660;
+  margin-top: 6px;
+}
+
+/* Status steps */
+.oc-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 24px;
+  animation: oc-fade-up 0.5s 0.25s both;
+}
+
+.oc-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.oc-step-connector {
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  right: -50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 0;
+}
+
+.oc-step-connector.active {
+  background: rgba(76, 175, 125, 0.4);
+}
+
+.oc-step-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1a1915;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  z-index: 1;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.oc-step-icon.active {
+  border-color: rgba(76, 175, 125, 0.4);
+  background: rgba(76, 175, 125, 0.1);
+}
+
+.oc-step-label {
+  font-size: 11px;
+  color: #6b6660;
+  margin-top: 6px;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 80px;
+}
+
+.oc-step-label.active {
+  color: #f0ede6;
+}
+
+/* Summary card */
+.oc-card {
+  background: #1a1915;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  animation: oc-fade-up 0.5s 0.3s both;
+}
+
+.oc-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #f0ede6;
+}
+
+.oc-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 3px 0;
+}
+
+.oc-info-label {
+  color: #6b6660;
+}
+
+.oc-info-val {
+  color: #f0ede6;
+  font-weight: 500;
+}
+
+/* Items */
+.oc-items {
+  margin: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.oc-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.oc-item-name {
+  font-size: 13px;
+  color: #f0ede6;
+}
+
+.oc-item-meta {
+  font-size: 11px;
+  color: #6b6660;
+  margin-top: 2px;
+}
+
+.oc-item-price {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: #f0ede6;
+  white-space: nowrap;
+}
+
+/* Price breakdown */
+.oc-price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 3px 0;
+}
+
+.oc-price-label {
+  color: #a09b8f;
+}
+
+.oc-price-val {
+  font-family: 'DM Mono', monospace;
+  color: #f0ede6;
+}
+
+.oc-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 10px 0;
+}
+
+.oc-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+.oc-total-val {
+  font-family: 'DM Mono', monospace;
+  color: #f0ede6;
+}
+
+/* Buttons */
+.oc-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: oc-fade-up 0.5s 0.4s both;
+}
+
+.oc-btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #c9922a;
+  color: #1a1612;
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.oc-btn-primary:hover {
+  background: #e8a83a;
+  transform: translateY(-1px);
+}
+
+.oc-btn-secondary {
+  width: 100%;
+  padding: 13px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #a09b8f;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.oc-btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #f0ede6;
+}
+
+/* Empty / no order */
+.oc-empty {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.oc-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.oc-empty-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: #f0ede6;
+  margin-bottom: 8px;
+}
+
+.oc-empty-desc {
+  font-size: 14px;
+  color: #6b6660;
+  margin-bottom: 24px;
+}
+
+/* Animations */
+@keyframes oc-scale-in {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes oc-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes oc-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.5;
+  }
+}

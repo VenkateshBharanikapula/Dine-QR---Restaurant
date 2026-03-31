@@ -1,0 +1,22 @@
+/* src/styles/ProtectedRoute.css */
+
+.protected-loading-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.protected-loading-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.protected-access-denied {
+  padding: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}

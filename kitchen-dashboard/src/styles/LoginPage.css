@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ─── Page Layout ─────────────────────────────────────────────────────────── */
+/* Override index.css body background (#f6f7fb) */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f0e0c !important;
+  font-family: 'DM Sans', sans-serif;
+  padding: 24px;
+  color: #e6f0ec; /* reset index.css body color: #222 */
+}
+
+/* ─── Card ────────────────────────────────────────────────────────────────── */
+.login-page .login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #1a1915;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 44px 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: lp-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Logo ────────────────────────────────────────────────────────────────── */
+.login-page .login-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.login-page .login-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #c9922a, #e8a83a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.login-page .login-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #eae6f0;
+}
+
+.login-page .login-logo-name span {
+  color: #c9922a;
+}
+
+/* ─── Headings ────────────────────────────────────────────────────────────── */
+/* globals.css sets h1-h3 to Playfair Display — override with Cormorant */
+.login-page .login-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 28px;
+  font-weight: 600;
+  color: #f0ede6;
+  margin: 0 0 6px;
+  text-align: center;
+  letter-spacing: normal;
+}
+
+.login-page .login-subtitle {
+  font-size: 14px;
+  color: #6b6660;
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+/* ─── Floating Input Field ────────────────────────────────────────────────── */
+.login-page .lp-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/*
+  globals.css sets input { padding: 12px 16px; border-radius: 8px; box-shadow on focus }
+  Using 3-level specificity (.login-page .lp-field .lp-input) + !important to win.
+*/
+.login-page .lp-field .lp-input {
+  width: 100%;
+  padding: 22px 14px 8px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #242320 !important;
+  color: #e7e6f0 !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  appearance: none;
+  line-height: 1.4;
+  box-shadow: none !important; /* kill globals gold glow */
+}
+
+.login-page .lp-field .lp-input:focus {
+  border-color: rgba(201, 146, 42, 0.5) !important;
+  box-shadow: none !important;
+}
+
+.login-page .lp-field .lp-input.error {
+  border-color: rgba(224, 92, 75, 0.6) !important;
+}
+
+.login-page .lp-field .lp-label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b6660;
+  font-size: 15px;
+  transition:
+    top 0.18s ease,
+    transform 0.18s ease,
+    font-size 0.18s ease,
+    color 0.18s ease,
+    letter-spacing 0.18s ease;
+  line-height: 1;
+  z-index: 1;
+
+  background: #242320;  /* ADD THIS */
+  padding: 0 6px;       /* ADD THIS */
+}
+
+.login-page .lp-field .lp-label.active {
+  top: -6px;
+  transform: translateY(0);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #c9922a;
+}
+
+/* ─── Error Messages ──────────────────────────────────────────────────────── */
+.login-page .lp-error {
+  font-size: 12px;
+  color: #e05c4b;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.login-page .lp-general-error {
+  background: rgba(224, 92, 75, 0.08);
+  border: 1px solid rgba(224, 92, 75, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #e05c4b;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Submit Button ───────────────────────────────────────────────────────── */
+/* index.css button:hover { transform: scale(1.03) } — must be overridden */
+.login-page .lp-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: #c9922a;
+  color: #1a1612;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.login-page .lp-btn:hover:not(:disabled) {
+  background: #e8a83a;
+  transform: translateY(-1px) !important;
+}
+
+.login-page .lp-btn:active {
+  transform: scale(0.98) !important;
+}
+
+.login-page .lp-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ─── Loading Spinner ─────────────────────────────────────────────────────── */
+.login-page .lp-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(26, 22, 18, 0.2);
+  border-top-color: #1a1612;
+  border-radius: 50%;
+  animation: lp-spin 0.7s linear infinite;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+.login-page .lp-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.login-page .lp-divider::before,
+.login-page .lp-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.login-page .lp-divider-text {
+  font-size: 12px;
+  color: #6b6660;
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────────────── */
+.login-page .lp-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b6660;
+}
+
+.login-page .lp-footer-link {
+  color: #c9922a;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.login-page .lp-footer-link:hover {
+  color: #e8a83a;
+}
+
+/* ─── Demo Hint Box ───────────────────────────────────────────────────────── */
+.login-page .lp-hint {
+  background: rgba(201, 146, 42, 0.06);
+  border: 1px solid rgba(201, 146, 42, 0.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+}
+
+.login-page .lp-hint-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #c9922a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.login-page .lp-hint-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.login-page .lp-hint-label {
+  color: #6b6660;
+}
+
+.login-page .lp-hint-val {
+  color: #a09b8f;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes lp-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
