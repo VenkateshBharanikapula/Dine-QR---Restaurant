@@ -215,16 +215,7 @@ For educational and demonstration purposes.
 
 ## 👨‍💻 Author
 
-Developed by Venkatesh
+Developed by Venkatesh Bharanikapula
 
 ---
 
-## ⭐ Final Note
-
-DineQR simplifies restaurant ordering by removing wait times and enabling seamless digital ordering from anywhere in the world.
-
----
-
-I can also **write a ready-to-push command for GitHub** so the README, QR code, and everything is live in one go.
-
-Do you want me to do that next?
